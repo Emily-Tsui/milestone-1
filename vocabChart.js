@@ -1,51 +1,110 @@
-let myWords = []
-const inputEl = document.getElementById("input-vocab")
+const bodEl = document.getElementById("tbod")
+
+const inputVocab = document.getElementById("input-vocab")
+
+let myWord = ""
 const inputBtn = document.getElementById("input-button")
-const thEl = document.getElementById("th1")
 
-let myPronunciations = []
+let myPronunciation = ""
 const inputPro = document.getElementById("input-pronunciation")
-const tdEl = document.getElementById("td1")
 
-let myDefinitions = []
+let myDefinition = ""
 const inputDef = document.getElementById("input-definition")
-const td2El = document.getElementById("td2")
+
+
+
 
 
 inputBtn.addEventListener("click", function() {
-    myWords.push(inputEl.value)
-    console.log(myWords)
-    renderWords()
+    addEntries()
+    // myWord = inputVocab.value  
+    // myPronunciation = inputPro.value 
+    // myDefinition = inputDef.value
 
-    myPronunciations.push(inputPro.value)
-    console.log(myPronunciations)
-    renderPronunciations()
+    // let newRow = document.createElement("tr")
 
-    myDefinitions.push(inputDef.value)
-    console.log(myDefinitions)
-    renderDefinitions()
+    // let newDataVocab = document.createElement("td")
+    // let newDataPro = document.createElement("td")
+    // let newDataDef = document.createElement("td")
+
+    // newDataVocab.append(myWord)
+    // newRow.append(newDataVocab)
+    // console.log(myWord)
+
+    // newDataPro.append(myPronunciation)
+    // newRow.append(newDataPro)
+    // console.log(myPronunciation)
+
+    // newDataDef.append(myDefinition)
+    // newRow.append(newDataDef)
+    // console.log(myDefinition)
+
+    // bodEl.append(newRow)
 })
 
-function renderWords() {
-    let listItems = ""
-    for (let i = 0; i < myWords.length; i++) {
-        listItems += "<li>" + myWords[i] + "<li>"
+function addEntries() {
+    myWord = inputVocab.value  
+    myPronunciation = inputPro.value 
+    myDefinition = inputDef.value
+
+
+    let newRow = document.createElement("tr") //container for each cell data
+
+    let word = createTableCells(myWord)
+    let pro = createTableCells(myPronunciation)
+    let def = createTableCells(myDefinition)
+
+    let myDeleteBtn = document.createElement("button")
+    let del = createTableCells(myDeleteBtn)
+    myDeleteBtn.innerHTML = "Delete"
+
+    let myEditBtn = document.createElement("button")
+    let edit = createTableCells(myEditBtn)
+    myEditBtn.innerHTML = "Edit"
+
+    newRow.append(word)
+    newRow.append(pro)
+    newRow.append(def)
+    newRow.append(del)
+    newRow.append(edit)
+
+    // newDataVocab.append(myWord)
+    // newRow.append(newDataVocab)
+    // console.log(myWord)
+
+    // newDataPro.append(myPronunciation)
+    // newRow.append(newDataPro)
+    // console.log(myPronunciation)
+
+    // newDataDef.append(myDefinition)
+    // newRow.append(newDataDef)
+    // console.log(myDefinition)
+
+    
+
+    myDeleteBtn.onclick() = function () {
+        alert("Are you sure you want to delete");
     }
-    thEl.innerHTML = listItems
+    bodEl.append(newRow)
+
+    
 }
 
-function renderPronunciations() {
-    let listItems = ""
-    for (let i = 0; i < myPronunciations.length; i++) {
-        listItems += "<li>" + myPronunciations[i] + "<li>"
-    }
-    tdEl.innerHTML = listItems
+function createTableCells(data) {
+    let val = document.createElement("td")
+    val.append(data)
+
+    return val
+
 }
 
-function renderDefinitions() {
-    let listItems = ""
-    for(let i = 0; i < myDefinitions.length; i++) {
-        listItems += "<li>" + myDefinitions[i] + "<li>"
-    }
-    td2El.innerHTML = listItems
+
+function editRow() {
+
 }
+
+
+function deleteRow(row) {
+    row.remove()
+}
+
