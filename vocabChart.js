@@ -11,41 +11,22 @@ const inputPro = document.getElementById("input-pronunciation")
 let myDefinition = ""
 const inputDef = document.getElementById("input-definition")
 
-
+let selectedtRow = null
 
 
 
 inputBtn.addEventListener("click", function() {
     addEntries()
-    // myWord = inputVocab.value  
-    // myPronunciation = inputPro.value 
-    // myDefinition = inputDef.value
-
-    // let newRow = document.createElement("tr")
-
-    // let newDataVocab = document.createElement("td")
-    // let newDataPro = document.createElement("td")
-    // let newDataDef = document.createElement("td")
-
-    // newDataVocab.append(myWord)
-    // newRow.append(newDataVocab)
-    // console.log(myWord)
-
-    // newDataPro.append(myPronunciation)
-    // newRow.append(newDataPro)
-    // console.log(myPronunciation)
-
-    // newDataDef.append(myDefinition)
-    // newRow.append(newDataDef)
-    // console.log(myDefinition)
-
-    // bodEl.append(newRow)
 })
 
 function addEntries() {
     myWord = inputVocab.value  
     myPronunciation = inputPro.value 
     myDefinition = inputDef.value
+
+    let currentWord = myWord
+    let currentPro = myPronunciation
+    let currentDef = myDefinition
 
 
     let newRow = document.createElement("tr") //container for each cell data
@@ -82,9 +63,32 @@ function addEntries() {
 
     
 
-    myDeleteBtn.onclick() = function () {
-        alert("Are you sure you want to delete");
+    myDeleteBtn.onclick = function () {
+        let confirmDelete = confirm("Are you sure you want to delete this row?")
+
+        if (confirmDelete) {
+            deleteRow(newRow)
+        }
     }
+
+    myEditBtn.onclick = function () {
+        inputVocab.value = currentWord
+        inputPro.value = currentPro
+        inputDef.value = currentDef
+
+        selectedtRow = newRow
+    }   
+
+    if (selectedtRow !== null) {
+    selectedtRow.children[0].innerHTML = myWord
+    selectedtRow.children[1].innerHTML = myPronunciation
+    selectedtRow.children[2].innerHTML = myDefinition
+
+    selectedtRow = null
+    return
+}
+
+
     bodEl.append(newRow)
 
     
