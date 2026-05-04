@@ -1,0 +1,23 @@
+table {
+    border-collapse: collapse;
+    max-width: 80%;
+    margin: 0 auto;
+  
+}
+
+tr {
+    border: 1px solid orange;
+}
+
+th {
+    border: 1px solid orange;
+}
+
+td {
+    border: 1px solid orange;
+    padding: 5px;
+}
+
+#flashcard-container {
+    display: none;
+}
