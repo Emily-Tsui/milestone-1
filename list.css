@@ -20,4 +20,20 @@ td {
 
 #flashcard-container {
     display: none;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: #73AD21;
+    color: white;
+    padding: 20px;
+    /* width: auto;
+    height: auto; */
+    align-items: center;
+    margin: 20px auto;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    max-width: 300px;
+    width: auto;
+    height: auto;
 }
