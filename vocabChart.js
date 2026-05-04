@@ -11,7 +11,7 @@ const inputPro = document.getElementById("input-pronunciation")
 let myDefinition = ""
 const inputDef = document.getElementById("input-definition")
 
-let selectedtRow = null
+let selectedRow = null
 
 
 
@@ -76,15 +76,15 @@ function addEntries() {
         inputPro.value = currentPro
         inputDef.value = currentDef
 
-        selectedtRow = newRow
+        selectedRow = newRow
     }   
 
-    if (selectedtRow !== null) {
-    selectedtRow.children[0].innerHTML = myWord
-    selectedtRow.children[1].innerHTML = myPronunciation
-    selectedtRow.children[2].innerHTML = myDefinition
+    if (selectedRow !== null) {
+    selectedRow.children[0].innerHTML = myWord
+    selectedRow.children[1].innerHTML = myPronunciation
+    selectedRow.children[2].innerHTML = myDefinition
 
-    selectedtRow = null
+    selectedRow = null
     return
 }
 
