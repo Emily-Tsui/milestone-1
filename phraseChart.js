@@ -51,7 +51,7 @@ function addEntries() {
   
 
     myDeleteBtn.onclick = function () {
-        let confirmDelete = confirm("Are you sure you want to delete this row?")
+        let confirmDelete = confirm("Are you sure you want to delete this row? You may edit the item before permanently removing the item.")
 
         if (confirmDelete) {
             deleteRow(newRow)

@@ -59,7 +59,7 @@ function tableFunc(event) {
         defEl.append(defLabel)
         proEl.append(proLabel)
 
-        defEl.append(dict[tagText].pronunciation)
+        defEl.append(dict[tagText].definition)
         proEl.append(dict[tagText].pronunciation)
 
         flashContainer.append(defEl)
